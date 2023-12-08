@@ -8,6 +8,7 @@ const initialState = {
   loading: false,
   cart: cartItems,
   amount: 0,
+  total: 0,
 };
 
 const CartProvider = ({ children }) => {
@@ -24,6 +25,10 @@ const CartProvider = ({ children }) => {
   const updateQuantity = (id, quantity) => {
     dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity } });
   };
+
+  useEffect(() => {
+    dispatch({ type: "GET_TOTAL" });
+  }, [state.cart]);
 
   return (
     <CartContex.Provider

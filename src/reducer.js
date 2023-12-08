@@ -25,6 +25,21 @@ const reducer = (state, action) => {
         cart: tempCart,
       };
 
+    case "GET_TOTAL":
+      const { total } = state.cart.reduce(
+        (cartTotal, cartItem) => {
+          const { price, quantity } = cartItem;
+          const itemTotal = price * quantity;
+          cartTotal.total += itemTotal;
+          return cartTotal;
+        },
+        {
+          total: 0,
+        }
+      );
+
+      return { ...state, total };
+
     default:
       return state;
   }
