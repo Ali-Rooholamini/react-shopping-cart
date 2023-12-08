@@ -23,7 +23,7 @@ const CartItem = ({ id, img, title, price, quantity }) => {
           type="number"
           value={quantity}
           onChange={(e) => {
-            updateQuantity(id, e.target.value);
+            updateQuantity(id, Number(e.target.value));
           }}
         />
         <button

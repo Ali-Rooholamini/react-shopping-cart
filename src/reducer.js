@@ -1,5 +1,3 @@
-import Cart from "./Components/cart";
-
 const reducer = (state, action) => {
   switch (action.type) {
     case "CLEAR_ALL":
