@@ -4,7 +4,7 @@ import { RiFontSize, RiShoppingCartLine } from "react-icons/ri";
 import { useCartContex } from "../contex";
 
 const Cart = () => {
-  const { cart } = useCartContex();
+  const { cart, clearCarts } = useCartContex();
 
   const renderingContent = () => {
     if (cart.length > 0) {
@@ -20,7 +20,10 @@ const Cart = () => {
               <h3 className="h5 mb-3 pb-1">جمع کل</h3>
               <h4 className="fw-normal">350,000 تومان</h4>
             </div>
-            <a className="btn btn-primary btn-shadow d-block w-100 mt-4">
+            <a
+              className="btn btn-primary btn-shadow d-block w-100 mt-4"
+              onClick={() => clearCarts()}
+            >
               حذف همه آیتم ها
             </a>
           </div>
