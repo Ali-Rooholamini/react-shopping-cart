@@ -22,8 +22,14 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "REMOVE_CART", payload: id });
   };
 
+  const updateQuantity = (id, quantity) => {
+    dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity } });
+  };
+
   return (
-    <CartContex.Provider value={{ ...state, clearCarts, removeItem }}>
+    <CartContex.Provider
+      value={{ ...state, clearCarts, removeItem, updateQuantity }}
+    >
       {children}
     </CartContex.Provider>
   );
